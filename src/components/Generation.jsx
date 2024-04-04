@@ -44,6 +44,10 @@ const Generation = ({lastGeneration, generationIndex}) => {
         {
             const parents = [Math.floor(Math.random() * 3), Math.floor(Math.random() * 3)];
             
+            while(parents[0] === parents[1])
+            {
+                parents[1] =  Math.floor(Math.random() * 3);
+            }
 
             //child breeding algorithm
             const child = {

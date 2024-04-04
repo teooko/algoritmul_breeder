@@ -33,7 +33,6 @@ const Individual = ({generationIndex, index, redness, size, roundness, parent1, 
                     y2={currentPosition[1]}/>
             }
         <div ref={divRef} style={{backgroundColor: `rgb(255, ${(1 - redness) * 255}, ${(1 - redness) * 255})`, width: size * 100, height: size * 100, borderColor: "black", borderRadius: roundness * (size * 200)/2, borderWidth: 1, borderStyle: "solid", zIndex: 2 }}>
-            
         </div>
         </>
     )
