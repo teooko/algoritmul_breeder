@@ -73,7 +73,7 @@ const Generation = ({lastGeneration, generationIndex}) => {
     return (
         <div style={{display: "flex", flexDirection: "column", gap: 20, alignItems: "center", width: 200}}>
             <div style={{height: '30px'}}>
-            {latestGeneration === generationIndex && <button style={{padding: '3px'}} onClick={handleNextGeneration}>
+            {latestGeneration === generationIndex && latestGeneration < 6 && <button style={{padding: '3px'}} onClick={handleNextGeneration}>
                 Next Generation
             </button>}
             </div>
