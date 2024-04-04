@@ -29,17 +29,19 @@ const Generation = ({lastGeneration, generationIndex}) => {
     const handleNextGeneration = () => {
         
         const eachFitness = lastGeneration.map(
-            g => calculateFitness(g.geneArray)
+            (g, index) => {
+                return ({
+                    index: index,
+                    fitness: calculateFitness(g.geneArray)
+                })
+            }
         )
-
-        const sortFittest = [...eachFitness];
-        sortFittest.sort();
-        //console.log(sortFittest);
-        const fittestIndex = [eachFitness.indexOf(sortFittest[sortFittest.length - 1]),
-            eachFitness.indexOf(sortFittest[sortFittest.length - 2]),
-            eachFitness.indexOf(sortFittest[sortFittest.length - 3])];
-        console.log(eachFitness);
-
+        eachFitness.sort((a, b) => a.fitness - b.fitness);
+        
+        const fittestIndex = [eachFitness[eachFitness.length - 1].index,
+            eachFitness[eachFitness.length - 2].index,
+            eachFitness[eachFitness.length - 3].index];
+        
         for(let i = 0; i < 7; i++)
         {
             const parents = [Math.floor(Math.random() * 3), Math.floor(Math.random() * 3)];
