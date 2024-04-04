@@ -12,8 +12,8 @@ const Individual = ({generationIndex, index, redness, size, roundness, parent1, 
     useEffect(() => {
         if(index !== undefined) {
             const rect = divRef.current.getBoundingClientRect();
-            dispatch(setIndividualCoordinates({index, position: [rect.left + size * 50, rect.top + size * 50]}));
-            setCurrentPosition([rect.left + size * 50, rect.top + size * 50]);
+            dispatch(setIndividualCoordinates({index, position: [rect.left + size * 50 + window.scrollX, rect.top + size * 50 + window.scrollY]}));
+            setCurrentPosition([rect.left + size * 50 + window.scrollX, rect.top + size * 50 + window.scrollY]);
         }
     }, []);
     return (
