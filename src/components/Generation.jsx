@@ -72,10 +72,13 @@ const Generation = ({lastGeneration, generationIndex}) => {
 
     return (
         <div style={{display: "flex", flexDirection: "column", gap: 20, alignItems: "center", width: 200}}>
-            <div style={{height: '50px'}}>
-            {latestGeneration === generationIndex && <div onClick={handleNextGeneration}>
+            <div style={{height: '30px'}}>
+            {latestGeneration === generationIndex && <button style={{padding: '3px'}} onClick={handleNextGeneration}>
                 Next Generation
-            </div>}
+            </button>}
+            </div>
+            <div>
+                Generation {generationIndex}
             </div>
             {lastGeneration.map((g, index) => <Individual generationIndex={generationIndex} index={index} redness={g.geneArray[0]} size={g.geneArray[1]} parent1={g.parent1} parent2={g.parent2} roundness={g.geneArray[2]}/>)}
         </div>
